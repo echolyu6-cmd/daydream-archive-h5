@@ -6,11 +6,11 @@
     tagline: "一间村里的老房子，被重新整理成可以停留、表达和留下痕迹的复合空间。",
     description: "第一展馆｜村屋改造 + 空间机制设计",
     type: "core",
-    image: "./assets/fuli-gate.jpg",
+    image: "./assets/fuli-hero.jpg",
     evidence: [
-      { title: "旧蕾丝", image: "./assets/fuli-lace.jpg" },
-      { title: "白日梦纸", image: "./assets/fuli-daydream-paper.jpg" },
-      { title: "三明治", image: "./assets/fuli-sandwich.jpg" }
+      { title: "旧蕾丝", image: "./assets/fuli-lace-single.jpg" },
+      { title: "白日梦纸", image: "./assets/fuli-paper-single.jpg" },
+      { title: "三明治", image: "./assets/fuli-sandwich-single.jpg" }
     ],
     unclear: "福里原本是一间村里的老房子，有乡村日常、旧物和人情味，但一开始并不清楚：它应该只是咖啡馆、亲子空间，还是一个可以让人慢下来、停下来、留下点什么的复合空间。它也需要判断当下用户为什么愿意来乡村空间、为什么愿意拍照分享和再次回来。",
     seen: "我们看见老房子里已经存在的生活痕迹、主理人想保留的人情味，以及市场里对松弛、真实、可参与乡村空间的需求。旧蕾丝、等待时的空隙、孩子画下的纸和客人停留的片刻，都可以成为空间被记住的证据。",
@@ -380,15 +380,6 @@ function chooseProblem(index) {
 
 document.addEventListener("click", (event) => {
   const goTarget = event.target.closest("[data-go]");
-  if (goTarget?.hasAttribute("data-open-archive")) {
-    const gateScreen = document.querySelector("#screen-gate");
-    gateScreen.classList.add("is-opening");
-    setTimeout(() => {
-      gateScreen.classList.remove("is-opening");
-      showScreen(goTarget.dataset.go);
-    }, 360);
-    return;
-  }
   if (goTarget) return showScreen(goTarget.dataset.go);
   const sampleTarget = event.target.closest("[data-sample]");
   if (sampleTarget) return renderDetail(sampleTarget.dataset.sample);
