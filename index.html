@@ -4,18 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f6efe6" />
-  <title>白日梦计划 V2.1</title>
+  <title>白日梦计划 V2.2</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <main class="app-shell" id="app-shell">
-    <section id="screen-opening" class="screen opening-screen" data-screen="opening">
+    <section id="screen-opening" class="screen opening-screen is-active" data-screen="opening">
       <div class="drift-layer" aria-hidden="true">
         <span class="drift-note n1">一只大象梦</span>
         <span class="drift-note n2">未命名角落</span>
         <span class="drift-note n3">ABEBE</span>
       </div>
-
       <div class="archive-cover-scene">
         <button class="archive-book sealed-book" data-open-seal aria-label="拆开档案本">
           <span class="page-stack"></span>
@@ -28,6 +27,7 @@
             <strong>白日梦计划</strong>
             <em>福里农舍</em>
           </span>
+          <span class="cover-main-line">有人把一间房子的白日梦，留在了这里。</span>
           <span class="typed-note">请不要丢失这间房子的白日梦。</span>
           <span class="cover-stamp">FILED<br />DREAM</span>
           <span class="hand-mark">Abebe?</span>
@@ -38,176 +38,163 @@
     </section>
 
     <section id="screen-index" class="screen index-screen" data-screen="index">
-      <div class="open-book index-book">
-        <span class="book-spine"></span>
-        <span class="page-depth"></span>
-        <header class="index-head">
-          <span>INDEX</span>
-          <h1>白日梦档案目录</h1>
-        </header>
+      <button class="home-button cover-link" data-go="opening">回到封面</button>
+      <div class="book-dashboard" id="book-dashboard">
+        <section class="current-file" aria-label="当前选中档案预览">
+          <span class="book-spine"></span>
+          <span class="page-depth"></span>
+          <div class="preview-photo"><img id="preview-image" src="./assets/placeholder-house.svg" alt="" /></div>
+          <div class="preview-copy">
+            <span id="preview-label">DREAM 001｜已归档</span>
+            <h1 id="preview-title">福里农舍</h1>
+            <p id="preview-desc">一间还在发生的乡村小空间。</p>
+          </div>
+          <div class="preview-tags" id="preview-tags">
+            <span>蓝门</span><span>蕾丝</span><span>白日梦纸</span>
+          </div>
+          <button class="preview-action" id="preview-action" data-preview-action="overview">打开福里档案</button>
+          <i class="preview-stamp" id="preview-stamp">FILED</i>
+          <i class="preview-hand">Abebe / tucked page</i>
+        </section>
 
-        <button class="index-line primary-line" data-go="overview">
-          <span>01</span>
-          <strong>DREAM 001｜福里农舍</strong>
-          <small>已归档</small>
-        </button>
-        <button class="index-line waiting-line" data-locked>
-          <span>02</span>
-          <strong>DREAM 002｜山窑麦叙</strong>
-          <small>等待收录</small>
-        </button>
-        <button class="index-line waiting-line" data-locked>
-          <span>03</span>
-          <strong>DREAM 003｜铁路公社</strong>
-          <small>等待收录</small>
-        </button>
-        <button class="index-line utility-line" data-go="seal">
-          <span>R</span>
-          <strong>RECEIPT｜塑封我的白日梦</strong>
-          <small>可生成</small>
-        </button>
-        <button class="index-line utility-line" data-go="contact">
-          <span>D</span>
-          <strong>DROP BOX｜投递空间问题</strong>
-          <small>可投递</small>
-        </button>
-
-        <i class="margin-tab tab-one">大象梦</i>
-        <i class="margin-tab tab-two">阿贝贝</i>
-        <i class="margin-tab tab-three">夹页</i>
-        <p class="locked-note" aria-live="polite"></p>
+        <section class="index-drawer" aria-label="白日梦档案目录">
+          <header class="index-head">
+            <span>INDEX</span>
+            <h1>白日梦档案目录</h1>
+          </header>
+          <div class="index-group-label">板块 01｜已归档</div>
+          <button class="index-line primary-line is-selected" data-index-entry="fuli">
+            <span>01</span>
+            <strong>DREAM 001｜福里农舍</strong>
+            <small>已归档</small>
+          </button>
+          <div class="index-group-label">板块 02｜等待收录</div>
+          <button class="index-line waiting-line" data-index-entry="shanyao">
+            <span>02</span>
+            <strong>DREAM 002｜山窑麦叙</strong>
+            <small>等待收录</small>
+          </button>
+          <button class="index-line waiting-line" data-index-entry="railway">
+            <span>03</span>
+            <strong>DREAM 003｜铁路公社</strong>
+            <small>等待收录</small>
+          </button>
+          <div class="index-group-label">板块 03｜生成回执</div>
+          <button class="index-line utility-line" data-index-entry="receipt">
+            <span>R</span>
+            <strong>RECEIPT｜塑封我的白日梦</strong>
+            <small>可生成</small>
+          </button>
+          <div class="index-group-label">板块 04｜投递问题</div>
+          <button class="index-line utility-line" data-index-entry="dropbox">
+            <span>D</span>
+            <strong>DROP BOX｜投递空间问题</strong>
+            <small>可投递</small>
+          </button>
+          <i class="margin-tab tab-one">大象梦</i>
+          <i class="margin-tab tab-two">阿贝贝</i>
+        </section>
       </div>
     </section>
 
     <section id="screen-overview" class="screen overview-screen" data-screen="overview">
+      <button class="home-button" data-go="index">回到目录</button>
       <article class="project-board">
         <div class="board-photo"><img src="./assets/placeholder-house.svg" alt="" /></div>
         <div class="board-head">
           <span>DREAM 001｜已归档</span>
           <h2>福里农舍</h2>
-          <p>一间有来历、能停留、还在继续发生的乡村复合空间。</p>
+          <p>一间还在发生的乡村小空间。</p>
         </div>
         <div class="info-strip two-col">
-          <section>
-            <small>原本是什么</small>
-            <strong>村里的老房子</strong>
-          </section>
-          <section>
-            <small>现在是什么</small>
-            <strong>可以停留的房子</strong>
-          </section>
+          <section><small>原本</small><strong>村里的老房子</strong></section>
+          <section><small>现在</small><strong>可以停留、表达、留下痕迹</strong></section>
         </div>
         <div class="tag-row" aria-label="关键词">
-          <span>乡村</span><span>停留</span><span>白日梦纸</span><span>新的痕迹</span>
+          <span>乡村老屋</span><span>松弛停留</span><span>继续生长</span>
         </div>
         <div class="element-row">
-          <span>旧蕾丝</span>
-          <span>孩子画</span>
-          <span>三明治</span>
-          <span>手写卡</span>
+          <span>蓝门</span><span>蕾丝</span><span>白日梦纸</span>
         </div>
-        <p class="board-note">我们整理了：进入的理由、留下来的方式、继续发生的痕迹。</p>
-        <button class="entry-button" data-go="reveal1">进入三次显影</button>
+        <p class="board-note">我们整理了：空间主线 / 停留理由 / 记忆点 / 表达方式。</p>
+        <div class="overview-actions">
+          <button class="entry-button" data-go="details">继续翻看</button>
+          <button class="entry-button subtle" data-go="seal">塑封我的白日梦</button>
+          <button class="entry-button subtle" data-go="contact">投递一个空间问题</button>
+        </div>
       </article>
     </section>
 
-    <section id="screen-reveal-1" class="screen reveal-screen reveal-one" data-screen="reveal1">
-      <div class="reveal-image house-image">
-        <img src="./assets/placeholder-house.svg" alt="" />
-        <span>01</span>
-      </div>
-      <div class="reveal-copy">
-        <span>显影 01</span>
-        <h2>房子被重新打开。</h2>
-        <p>不必变新，它先重新被进入。</p>
-        <button data-go="reveal2">下一次显影</button>
-      </div>
-    </section>
-
-    <section id="screen-reveal-2" class="screen reveal-screen reveal-two" data-screen="reveal2">
-      <div class="stay-collage">
-        <div class="photo-main"><img src="./assets/placeholder-stay.svg" alt="" /></div>
-        <div class="photo-side"><img src="./assets/placeholder-dream.svg" alt="" /></div>
-        <span class="stamp">02</span>
-      </div>
-      <div class="reveal-copy">
-        <span>显影 02</span>
-        <h2>停留被接住。</h2>
-        <p>白日梦也需要吃的、坐的和等一会儿。</p>
-        <button data-go="reveal3">下一次显影</button>
-      </div>
-    </section>
-
-    <section id="screen-reveal-3" class="screen reveal-screen reveal-three" data-screen="reveal3">
-      <div class="reply-field">
-        <span class="paper p1"><img src="./assets/placeholder-reply.svg" alt="" /></span>
-        <span class="paper p2"><img src="./assets/placeholder-lace.svg" alt="" /></span>
-        <span class="paper p3">03</span>
-      </div>
-      <div class="reveal-copy">
-        <span>显影 03</span>
-        <h2>新的痕迹长出来。</h2>
-        <p>房子没有停在过去，它开始收到回信。</p>
-        <button data-go="conclusion">看结论卡</button>
-      </div>
-    </section>
-
-    <section id="screen-conclusion" class="screen conclusion-screen" data-screen="conclusion">
-      <article class="conclusion-card">
-        <span>DREAM 001</span>
-        <h2>福里不是怀旧。</h2>
-        <p>它有来历，也有新的事情正在发生。</p>
-        <small>旧的东西留下来，新的白日梦长出来。</small>
+    <section id="screen-details" class="screen detail-screen" data-screen="details">
+      <button class="home-button" data-go="index">回到目录</button>
+      <article class="detail-board">
+        <header class="detail-head">
+          <span>DREAM 001｜更多细节</span>
+          <h2>福里不是怀旧。</h2>
+          <p>它有来历，能停留，也还在继续发生。</p>
+        </header>
+        <div class="detail-grid">
+          <section class="detail-card main-detail">
+            <img src="./assets/placeholder-house.svg" alt="" />
+            <span>显影 01</span>
+            <h3>房子被重新打开。</h3>
+            <p>不必变新，它先重新被进入。</p>
+          </section>
+          <section class="detail-card">
+            <img src="./assets/placeholder-stay.svg" alt="" />
+            <span>显影 02</span>
+            <h3>停留被接住。</h3>
+            <p>白日梦也需要吃的、坐的和等一会儿。</p>
+          </section>
+          <section class="detail-card">
+            <img src="./assets/placeholder-reply.svg" alt="" />
+            <span>显影 03</span>
+            <h3>新的痕迹长出来。</h3>
+            <p>房子开始收到人的回信。</p>
+          </section>
+        </div>
+        <div class="detail-actions">
+          <button class="entry-button" data-go="seal">塑封我的白日梦</button>
+          <button class="entry-button subtle" data-go="contact">投递一个空间问题</button>
+        </div>
       </article>
-      <div class="screen-actions">
-        <button data-go="seal">塑封我的白日梦</button>
-        <button data-go="contact">投递一个空间问题</button>
-      </div>
     </section>
 
     <section id="screen-seal" class="screen seal-screen" data-screen="seal">
+      <button class="home-button" data-go="index">回到目录</button>
       <header class="screen-head compact">
         <span>封存台</span>
         <h2>塑封我的白日梦</h2>
         <p>放进一张照片，看看它会变成哪种白日梦。</p>
       </header>
-
       <section class="seal-machine">
         <div class="receipt-preview" id="receipt-preview">
-          <span class="receipt-number">白日梦回执</span>
+          <span class="receipt-number" id="receipt-number">白日梦回执</span>
           <div class="receipt-photo" id="receipt-photo"><img src="./assets/placeholder-dream.svg" alt="" /></div>
           <p class="user-line" id="receipt-user-line">留下一句还没说清楚的话。</p>
           <strong id="receipt-stamp">已收录：未完成的角落</strong>
           <p id="receipt-line">这不是没用的地方，只是还没被安排一个理由。</p>
         </div>
-
         <div class="seal-fields">
-          <label class="field">
-            <span>选择照片</span>
-            <input id="photo-input" type="file" accept="image/*" />
-          </label>
-          <label class="field">
-            <span>写一句话</span>
-            <textarea id="dream-text" maxlength="50" placeholder="比如：这里想慢慢有人停下来。"></textarea>
-          </label>
+          <label class="field"><span>选择照片</span><input id="photo-input" type="file" accept="image/*" /></label>
+          <label class="field"><span>写一句话</span><textarea id="dream-text" maxlength="50" placeholder="比如：这里想慢慢有人停下来。"></textarea></label>
           <button class="primary" id="generate-receipt">开始塑封</button>
         </div>
       </section>
     </section>
 
     <section id="screen-contact" class="screen contact-screen" data-screen="contact">
+      <button class="home-button" data-go="index">回到目录</button>
       <header class="screen-head contact-head">
         <span>投递口</span>
         <h2>你的空间，也有一份还没说清楚的白日梦吗？</h2>
         <p>不用准备完整方案。先发 3 张现场照片和一个问题。</p>
       </header>
-
       <div class="question-grid">
         <button data-question="0">东西很多，但主线不清楚。</button>
         <button data-question="1">空间好看，却缺少被记住的理由。</button>
         <button data-question="2">有人喜欢，但还没被好好表达。</button>
       </div>
-
       <div class="answer-card" id="answer-card" hidden></div>
       <nav class="bottom-nav" aria-label="返回">
         <button data-go="index">回到目录</button>
@@ -215,8 +202,6 @@
       </nav>
     </section>
   </main>
-
   <script src="./app.js"></script>
 </body>
 </html>
-
