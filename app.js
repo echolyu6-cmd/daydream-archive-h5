@@ -183,21 +183,68 @@ function drawWrappedText(text, x, y, maxWidth, lineHeight, maxLines = 4) {
   lines.slice(0, maxLines).forEach((lineText, index) => ctx.fillText(lineText, x, y + index * lineHeight));
 }
 
-function drawCardText(text) {
-  ctx.fillStyle = "rgba(255,255,255,0.36)";
-  ctx.fillRect(105, 105, 700, 1060);
-  ctx.fillStyle = "#24211d";
-  ctx.font = "36px Microsoft YaHei, sans-serif";
-  drawWrappedText(text, 120, 930, 650, 58, 4);
-  ctx.fillStyle = "#a84635";
-  ctx.font = "24px Microsoft YaHei, sans-serif";
-  ctx.fillText("DAYDREAM PROJECT", 120, 1115);
-  ctx.fillStyle = "rgba(255,255,255,0.45)";
+function drawElephantSlideStamp(x, y, scale = 1) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+  ctx.strokeStyle = "rgba(168, 70, 53, 0.72)";
+  ctx.lineWidth = 4;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
   ctx.beginPath();
-  ctx.moveTo(140, 70);
-  ctx.lineTo(830, 70);
-  ctx.lineTo(520, 1190);
-  ctx.lineTo(250, 1190);
+  ctx.moveTo(8, 52);
+  ctx.bezierCurveTo(8, 28, 23, 15, 45, 15);
+  ctx.bezierCurveTo(68, 15, 82, 29, 82, 48);
+  ctx.bezierCurveTo(96, 47, 104, 38, 101, 27);
+  ctx.moveTo(31, 29);
+  ctx.bezierCurveTo(27, 36, 26, 44, 27, 55);
+  ctx.moveTo(63, 31);
+  ctx.bezierCurveTo(67, 39, 68, 48, 66, 58);
+  ctx.moveTo(8, 55);
+  ctx.bezierCurveTo(35, 61, 76, 61, 108, 55);
+  ctx.moveTo(47, 17);
+  ctx.bezierCurveTo(48, 9, 55, 7, 61, 13);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawCardText(text, number, today) {
+  ctx.fillStyle = "#a84635";
+  ctx.font = "25px Microsoft YaHei, sans-serif";
+  ctx.fillText(number, 155, 208);
+  ctx.fillStyle = "#24211d";
+  ctx.font = "44px Microsoft YaHei, sans-serif";
+  ctx.fillText("白日梦档案", 155, 278);
+  ctx.fillStyle = "#837a70";
+  ctx.font = "24px Microsoft YaHei, sans-serif";
+  ctx.fillText(`日期 ${today}`, 155, 318);
+
+  ctx.fillStyle = "#24211d";
+  ctx.font = "34px Microsoft YaHei, sans-serif";
+  drawWrappedText(text, 155, 850, 575, 54, 4);
+
+  ctx.fillStyle = "#a84635";
+  ctx.font = "23px Microsoft YaHei, sans-serif";
+  ctx.fillText("DAYDREAM PROJECT", 155, 1060);
+  ctx.fillStyle = "#837a70";
+  ctx.font = "20px Microsoft YaHei, sans-serif";
+  ctx.fillText("transparent archive sleeve / local only", 155, 1096);
+  drawElephantSlideStamp(636, 1014, 0.85);
+
+  ctx.fillStyle = "rgba(255,255,255,0.34)";
+  ctx.beginPath();
+  ctx.moveTo(104, 78);
+  ctx.lineTo(308, 78);
+  ctx.lineTo(714, 1190);
+  ctx.lineTo(511, 1190);
+  ctx.closePath();
+  ctx.fill();
+  ctx.fillStyle = "rgba(255,255,255,0.22)";
+  ctx.beginPath();
+  ctx.moveTo(640, 62);
+  ctx.lineTo(804, 62);
+  ctx.lineTo(340, 1200);
+  ctx.lineTo(238, 1200);
   ctx.closePath();
   ctx.fill();
 }
@@ -209,28 +256,53 @@ function drawCard() {
   const text = state.currentText || "一句还没说清楚的白日梦。";
   ctx.fillStyle = "#f3eee7";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#fffaf3";
-  ctx.fillRect(70, 70, 760, 1120);
+
+  ctx.fillStyle = "rgba(36, 33, 29, 0.10)";
+  ctx.fillRect(78, 86, 758, 1128);
+  ctx.fillStyle = "rgba(255,255,255,0.45)";
+  ctx.fillRect(58, 54, 780, 1148);
   ctx.strokeStyle = "rgba(36, 33, 29, 0.18)";
   ctx.lineWidth = 3;
-  ctx.strokeRect(70, 70, 760, 1120);
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.78)";
-  ctx.strokeRect(95, 95, 710, 1070);
-  ctx.fillStyle = "#a84635";
-  ctx.font = "28px Microsoft YaHei, sans-serif";
-  ctx.fillText(number, 120, 150);
-  ctx.fillStyle = "#24211d";
-  ctx.font = "46px Microsoft YaHei, sans-serif";
-  ctx.fillText("白日梦档案卡", 120, 235);
-  ctx.fillStyle = "#837a70";
-  ctx.font = "26px Microsoft YaHei, sans-serif";
-  ctx.fillText(`日期 ${today}`, 120, 290);
-  const imageX = 120;
-  const imageY = 340;
-  const imageW = 660;
-  const imageH = 500;
+  ctx.strokeRect(58, 54, 780, 1148);
+  ctx.strokeStyle = "rgba(255,255,255,0.76)";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(84, 86, 728, 1084);
+
+  ctx.fillStyle = "rgba(255, 250, 243, 0.86)";
+  ctx.fillRect(125, 150, 650, 960);
+  ctx.strokeStyle = "rgba(36, 33, 29, 0.14)";
+  ctx.strokeRect(125, 150, 650, 960);
+  ctx.fillStyle = "rgba(235, 225, 213, 0.44)";
+  ctx.fillRect(125, 150, 650, 72);
+
+  ctx.fillStyle = "rgba(36,33,29,0.12)";
+  [158, 222, 286].forEach((dotY) => {
+    ctx.beginPath();
+    ctx.arc(94, dotY, 12, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "rgba(255,255,255,0.64)";
+    ctx.stroke();
+  });
+  ctx.strokeStyle = "rgba(36,33,29,0.07)";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(104, 402);
+  ctx.bezierCurveTo(180, 386, 263, 430, 344, 408);
+  ctx.bezierCurveTo(470, 374, 590, 438, 776, 398);
+  ctx.moveTo(98, 706);
+  ctx.bezierCurveTo(238, 680, 432, 732, 792, 690);
+  ctx.moveTo(122, 1010);
+  ctx.bezierCurveTo(312, 990, 484, 1032, 764, 1012);
+  ctx.stroke();
+
+  const imageX = 155;
+  const imageY = 358;
+  const imageW = 590;
+  const imageH = 410;
   ctx.fillStyle = "#ebe1d5";
   ctx.fillRect(imageX, imageY, imageW, imageH);
+  ctx.strokeStyle = "rgba(36,33,29,0.16)";
+  ctx.strokeRect(imageX, imageY, imageW, imageH);
   if (state.currentPhoto) {
     const image = new Image();
     image.onload = () => {
@@ -243,14 +315,14 @@ function drawCard() {
       ctx.clip();
       ctx.drawImage(image, imageX + (imageW - width) / 2, imageY + (imageH - height) / 2, width, height);
       ctx.restore();
-      drawCardText(text);
+      drawCardText(text, number, today);
     };
     image.src = state.currentPhoto;
   } else {
     ctx.fillStyle = "#837a70";
     ctx.font = "28px Microsoft YaHei, sans-serif";
-    ctx.fillText("照片位置", 390, 600);
-    drawCardText(text);
+    ctx.fillText("照片位置", 390, 575);
+    drawCardText(text, number, today);
   }
 }
 
@@ -277,6 +349,15 @@ function chooseProblem(index) {
 
 document.addEventListener("click", (event) => {
   const goTarget = event.target.closest("[data-go]");
+  if (goTarget?.hasAttribute("data-open-archive")) {
+    const openScreen = document.querySelector("#screen-open");
+    openScreen.classList.add("is-opening");
+    setTimeout(() => {
+      openScreen.classList.remove("is-opening");
+      showScreen(goTarget.dataset.go);
+    }, 360);
+    return;
+  }
   if (goTarget) return showScreen(goTarget.dataset.go);
   const sampleTarget = event.target.closest("[data-sample]");
   if (sampleTarget) return renderDetail(sampleTarget.dataset.sample);
