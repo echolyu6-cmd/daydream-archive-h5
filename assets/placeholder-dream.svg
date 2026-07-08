@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ece3f0"/>
+      <stop offset="1" stop-color="#fff7ea"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .08"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#g)"/>
+  <rect width="900" height="1200" filter="url(#grain)"/>
+  <rect x="82" y="88" width="736" height="1024" rx="34" fill="none" stroke="#2b2721" stroke-opacity=".16" stroke-width="2"/>
+  <text x="110" y="150" font-family="Georgia, serif" font-size="38" fill="#a84635" letter-spacing="3">DREAM / POOL</text>
+  
+  <path d="M250 660 C250 520 360 440 450 520 C540 440 650 520 650 660 C650 790 540 850 450 900 C360 850 250 790 250 660Z" fill="#a84635" fill-opacity=".16" stroke="#2b2721" stroke-opacity=".16" stroke-width="5"/>
+  <circle cx="360" cy="640" r="18" fill="#2b2721" fill-opacity=".18"/>
+  <circle cx="540" cy="640" r="18" fill="#2b2721" fill-opacity=".18"/>
+  <path d="M390 720 C430 755 485 755 520 720" stroke="#2b2721" stroke-opacity=".20" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M170 380 C250 320 340 410 420 350 S580 310 720 370" stroke="#a84635" stroke-opacity=".22" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+</svg>

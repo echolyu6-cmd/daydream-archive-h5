@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f2e7dc"/>
+      <stop offset="1" stop-color="#fff7ea"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .08"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#g)"/>
+  <rect width="900" height="1200" filter="url(#grain)"/>
+  <rect x="82" y="88" width="736" height="1024" rx="34" fill="none" stroke="#2b2721" stroke-opacity=".16" stroke-width="2"/>
+  <text x="110" y="150" font-family="Georgia, serif" font-size="38" fill="#a84635" letter-spacing="3">REPLY / 004</text>
+  
+  <rect x="185" y="320" width="520" height="640" rx="24" fill="#fffaf2" fill-opacity=".75" stroke="#2b2721" stroke-opacity=".14"/>
+  <path d="M250 485 C370 420 450 570 590 500" stroke="#a84635" stroke-opacity=".45" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M250 610 C360 570 500 650 635 595" stroke="#2b2721" stroke-opacity=".20" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M250 730 C380 680 520 780 650 705" stroke="#2b2721" stroke-opacity=".18" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <circle cx="650" cy="385" r="42" fill="#a84635" fill-opacity=".18"/>
+
+</svg>

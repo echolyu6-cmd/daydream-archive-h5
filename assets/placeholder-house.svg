@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e9ddd0"/>
+      <stop offset="1" stop-color="#fff7ea"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .08"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#g)"/>
+  <rect width="900" height="1200" filter="url(#grain)"/>
+  <rect x="82" y="88" width="736" height="1024" rx="34" fill="none" stroke="#2b2721" stroke-opacity=".16" stroke-width="2"/>
+  <text x="110" y="150" font-family="Georgia, serif" font-size="38" fill="#a84635" letter-spacing="3">ROOM / 001</text>
+  
+  <path d="M225 660 L450 470 L675 660" fill="none" stroke="#2b2721" stroke-opacity=".42" stroke-width="18" stroke-linecap="round"/>
+  <rect x="285" y="642" width="330" height="260" rx="18" fill="#fffaf2" fill-opacity=".62" stroke="#2b2721" stroke-opacity=".20" stroke-width="3"/>
+  <rect x="415" y="732" width="78" height="170" rx="10" fill="#a84635" fill-opacity=".28"/>
+  <circle cx="548" cy="560" r="34" fill="#a84635" fill-opacity=".22"/>
+  <path d="M145 980 C285 930 438 1012 760 940" fill="none" stroke="#a84635" stroke-opacity=".24" stroke-width="10" stroke-linecap="round"/>
+
+</svg>
