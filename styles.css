@@ -83,6 +83,10 @@ textarea { min-height: 96px; resize: vertical; padding: 12px; }
 .theme-structure { display: grid; gap: 12px; margin-top: 18px; }
 .theme-point { border-top: 1px solid var(--line); padding-top: 12px; }
 .theme-point h3 { margin-bottom: 8px; font-size: 17px; }
+.theme-point.space-question {}
+.theme-point.seen {}
+.theme-point.judgment { border-left: 3px solid var(--accent); padding-left: 10px; }
+.theme-point.outcome {}
 .drawer { position: fixed; inset: 0; z-index: 30; display: grid; align-items: end; padding: 18px; background: rgba(36,33,29,.22); }
 .drawer[hidden] { display: none; }
 .drawer-card { width: min(100%, 430px); margin: 0 auto; border: 1px solid var(--line); padding: 18px; background: var(--paper); box-shadow: 0 -16px 44px rgba(36,33,29,.18); }

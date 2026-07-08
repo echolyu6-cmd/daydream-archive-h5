@@ -38,9 +38,9 @@
 ];
 
 const problemCards = [
-  { text: "我的空间有很多东西，但主线还不清楚。", response: "像福里一样，整理已有痕迹。" },
-  { text: "我的空间不缺好看，但缺少被记住的理由。", response: "像铁路公社一样，重新组织空间。" },
-  { text: "我的空间已经有人喜欢，但还没被好好表达。", response: "像山窑一样，说清空间气质、故事和表达。" }
+  { text: "我的空间有很多东西，但主线还不清楚。", response: "这通常不是内容太少，而是还没有被整理成一条线。\n可以先像福里一样，把已有痕迹和情绪整理出来。" },
+  { text: "我的空间不缺好看，但缺少被记住的理由。", response: "好看已经存在，但人为什么停下、为什么记住，还需要被说清。\n可以像铁路公社一样，重新组织空间和使用方式。" },
+  { text: "我的空间已经有人喜欢，但还没被好好表达。", response: "这说明空间已经有吸引力，只是故事和气质还没有被准确表达。\n可以像山窑一样，说清空间气质、故事和传播表达。" }
 ];
 
 const state = { currentPhoto: "", currentText: "", currentNumber: "", sealTimer: null };
@@ -115,18 +115,18 @@ function renderDetail(sampleId) {
     <p class="subtitle">${sample.role}</p>
     <p class="quiet-copy">${sample.tagline}</p>
     <div class="theme-structure">
-      ${renderThemePoint("这个空间一开始说不清楚什么？", sample.unclear)}
-      ${renderThemePoint("我们看见了什么？", sample.seen)}
-      ${renderThemePoint("我们判断什么值得被放大？", sample.amplify)}
-      ${renderThemePoint("它最后显影成了什么？", sample.outcome)}
+      ${renderThemePoint("space-question", "这个空间一开始说不清楚什么？", sample.unclear)}
+      ${renderThemePoint("seen", "我们看见了什么？", sample.seen)}
+      ${renderThemePoint("judgment", "我们判断什么值得被放大？", sample.amplify)}
+      ${renderThemePoint("outcome", "它最后显影成了什么？", sample.outcome)}
     </div>
   `;
   showScreen("detail");
 }
 
-function renderThemePoint(title, text) {
+function renderThemePoint(type, title, text) {
   return `
-    <section class="theme-point">
+    <section class="theme-point ${type}">
       <h3>${title}</h3>
       <p>${text}</p>
     </section>
@@ -147,7 +147,13 @@ function setSealStep(step, label) {
 function startSealFlow() {
   resultPanel.hidden = true;
   state.currentText = dreamText.value.trim();
-  state.currentNumber = makeDaydreamNumber();
+  if (!state.currentText) {
+    setSealStep("text", "先留下一句还没说清楚的话。");
+    return;
+  }
+  if (!state.currentNumber) {
+    state.currentNumber = makeDaydreamNumber();
+  }
   clearTimeout(state.sealTimer);
   setSealStep("start", "正在把照片和这句话放入透明档案袋。");
   state.sealTimer = setTimeout(() => {
