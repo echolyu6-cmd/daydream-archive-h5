@@ -11,9 +11,9 @@
   <main class="app-shell" id="app-shell">
     <section id="screen-opening" class="screen opening-screen is-active" data-screen="opening">
       <div class="drift-layer" aria-hidden="true">
-        <span class="drift-note n1">一只大象梦</span>
+        
         <span class="drift-note n2">未命名角落</span>
-        <span class="drift-note n3">ABEBE</span>
+        
       </div>
       <div class="archive-cover-scene">
         <button class="archive-book sealed-book" data-open-seal aria-label="拆开档案本">
@@ -30,7 +30,7 @@
           <span class="cover-main-line">有人把一间房子的白日梦，留在了这里。</span>
           <span class="typed-note">请不要丢失这间房子的白日梦。</span>
           <span class="cover-stamp">FILED<br />DREAM</span>
-          <span class="hand-mark">Abebe?</span>
+          <span class="hand-mark">FILE 001</span>
           <span class="plastic-film"></span>
         </button>
         <button class="entry-button" data-open-seal>拆开档案本</button>
@@ -45,16 +45,15 @@
           <span class="page-depth"></span>
           <div class="preview-photo"><img id="preview-image" src="./assets/placeholder-house.svg" alt="" /></div>
           <div class="preview-copy">
-            <span id="preview-label">DREAM 001｜已归档</span>
+            <span id="preview-label">DREAM 001｜完整档案</span>
             <h1 id="preview-title">福里农舍</h1>
             <p id="preview-desc">一间还在发生的乡村小空间。</p>
           </div>
           <div class="preview-tags" id="preview-tags">
             <span>蓝门</span><span>蕾丝</span><span>白日梦纸</span>
           </div>
-          <button class="preview-action" id="preview-action" data-preview-action="overview">打开福里档案</button>
           <i class="preview-stamp" id="preview-stamp">FILED</i>
-          <i class="preview-hand">Abebe / tucked page</i>
+          <i class="preview-hand">FILE 001 / tucked page</i>
         </section>
 
         <section class="index-drawer" aria-label="白日梦档案目录">
@@ -62,37 +61,42 @@
             <span>INDEX</span>
             <h1>白日梦档案目录</h1>
           </header>
-          <div class="index-group-label">板块 01｜已归档</div>
-          <button class="index-line primary-line is-selected" data-index-entry="fuli">
-            <span>01</span>
-            <strong>DREAM 001｜福里农舍</strong>
-            <small>已归档</small>
-          </button>
-          <div class="index-group-label">板块 02｜等待收录</div>
-          <button class="index-line waiting-line" data-index-entry="shanyao">
-            <span>02</span>
-            <strong>DREAM 002｜山窑麦叙</strong>
-            <small>等待收录</small>
-          </button>
-          <button class="index-line waiting-line" data-index-entry="railway">
-            <span>03</span>
-            <strong>DREAM 003｜铁路公社</strong>
-            <small>等待收录</small>
-          </button>
-          <div class="index-group-label">板块 03｜生成回执</div>
-          <button class="index-line utility-line" data-index-entry="receipt">
-            <span>R</span>
-            <strong>RECEIPT｜塑封我的白日梦</strong>
-            <small>可生成</small>
-          </button>
-          <div class="index-group-label">板块 04｜投递问题</div>
-          <button class="index-line utility-line" data-index-entry="dropbox">
-            <span>D</span>
-            <strong>DROP BOX｜投递空间问题</strong>
-            <small>可投递</small>
-          </button>
-          <i class="margin-tab tab-one">大象梦</i>
-          <i class="margin-tab tab-two">阿贝贝</i>
+          <div class="archive-index-stack">
+            <section class="archive-shelf" aria-label="已收录档案">
+              <div class="index-group-label">已收录档案</div>
+              <button class="file-cover-card main-file-card" data-go="overview">
+                <span>01</span>
+                <strong>DREAM 001｜福里农舍</strong>
+                <small>完整档案</small>
+                <em>先看这份完整档案</em>
+              </button>
+              <div class="small-file-row">
+                <button class="file-cover-card small-file-card" data-go="shanyao-cover">
+                  <span>02</span>
+                  <strong>DREAM 002｜山窑麦叙</strong>
+                  <small>封面档案</small>
+                </button>
+                <button class="file-cover-card small-file-card" data-go="railway-cover">
+                  <span>03</span>
+                  <strong>DREAM 003｜铁路公社</strong>
+                  <small>封面档案</small>
+                </button>
+              </div>
+            </section>
+            <section class="action-ticket-shelf" aria-label="行动入口">
+              <div class="index-group-label">回执夹页 / 投递票据</div>
+              <button class="ticket-entry" data-go="seal">
+                <span>RECEIPT</span>
+                <strong>塑封我的白日梦</strong>
+              </button>
+              <button class="ticket-entry" data-go="contact">
+                <span>DROP BOX</span>
+                <strong>投递空间问题</strong>
+              </button>
+            </section>
+          </div>
+          <i class="margin-tab tab-one">福里</i>
+          <i class="margin-tab tab-two">回执</i><i class="margin-tab tab-three">投递</i>
         </section>
       </div>
     </section>
@@ -102,7 +106,7 @@
       <article class="project-board">
         <div class="board-photo"><img src="./assets/placeholder-house.svg" alt="" /></div>
         <div class="board-head">
-          <span>DREAM 001｜已归档</span>
+          <span>DREAM 001｜完整档案</span>
           <h2>福里农舍</h2>
           <p>一间还在发生的乡村小空间。</p>
         </div>
@@ -110,18 +114,50 @@
           <section><small>原本</small><strong>村里的老房子</strong></section>
           <section><small>现在</small><strong>可以停留、表达、留下痕迹</strong></section>
         </div>
-        <div class="tag-row" aria-label="关键词">
-          <span>乡村老屋</span><span>松弛停留</span><span>继续生长</span>
-        </div>
-        <div class="element-row">
+        <div class="element-row" aria-label="代表元素">
           <span>蓝门</span><span>蕾丝</span><span>白日梦纸</span>
         </div>
         <p class="board-note">我们整理了：空间主线 / 停留理由 / 记忆点 / 表达方式。</p>
+        <div class="fooli-inner-index" aria-label="福里内部目录">
+          <span>00｜档案总览</span>
+          <span>01｜房子被重新打开</span>
+          <span>02｜停留被接住</span>
+          <span>03｜新的痕迹长出来</span>
+          <span>04｜影像资料袋</span>
+          <span>05｜去福里小红书看更多</span>
+        </div>
         <div class="overview-actions">
           <button class="entry-button" data-go="details">继续翻看</button>
-          <button class="entry-button subtle" data-go="seal">塑封我的白日梦</button>
-          <button class="entry-button subtle" data-go="contact">投递一个空间问题</button>
+          <button class="entry-button subtle" data-external-note="小红书入口待替换">去福里小红书看更多</button>
         </div>
+      </article>
+    </section>
+
+    <section id="screen-shanyao-cover" class="screen cover-archive-screen" data-screen="shanyao-cover">
+      <button class="home-button" data-go="index">回到目录</button>
+      <article class="cover-archive-card shanyao-card">
+        <span class="cover-file-label">DREAM 002｜封面档案</span>
+        <h2>山窑麦叙</h2>
+        <p class="cover-archive-line">旧粮仓里的快乐面包市集。</p>
+        <div class="cover-file-photo"><img src="./assets/placeholder-dream.svg" alt="" /></div>
+        <div class="cover-tags">
+          <span>旧粮仓</span><span>面包</span><span>窑火</span><span>市集</span>
+        </div>
+        <p class="cover-note">这份档案先收录封面。完整内容会继续归档。</p>
+      </article>
+    </section>
+
+    <section id="screen-railway-cover" class="screen cover-archive-screen" data-screen="railway-cover">
+      <button class="home-button" data-go="index">回到目录</button>
+      <article class="cover-archive-card railway-card">
+        <span class="cover-file-label">DREAM 003｜封面档案</span>
+        <h2>铁路公社</h2>
+        <p class="cover-archive-line">铁路不只是主题，而是一条组织体验的空间线索。</p>
+        <div class="cover-file-photo"><img src="./assets/placeholder-stay.svg" alt="" /></div>
+        <div class="cover-tags">
+          <span>轨道</span><span>站台</span><span>车厢窗口</span><span>咖啡外摆</span>
+        </div>
+        <p class="cover-note">这份档案先收录封面。完整内容会继续归档。</p>
       </article>
     </section>
 
@@ -151,6 +187,10 @@
             <span>显影 03</span>
             <h3>新的痕迹长出来。</h3>
             <p>房子开始收到人的回信。</p>
+          </section>
+          <section class="material-bag" aria-label="影像资料袋">
+            <span>影像资料袋</span>
+            <strong>蓝门 / 蕾丝 / 白日梦纸</strong>
           </section>
         </div>
         <div class="detail-actions">
@@ -205,3 +245,5 @@
   <script src="./app.js"></script>
 </body>
 </html>
+
+
