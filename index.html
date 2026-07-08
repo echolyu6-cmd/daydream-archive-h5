@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3eee7" />
-    <title>白日梦计划 V0.3</title>
+    <title>白日梦计划 V0.4</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="app-shell">
       <section id="screen-open" class="screen is-active" data-screen="open">
         <div class="sealed-card opening-card">
-          <span class="archive-label">DAYDREAM MICRO EXHIBITION</span>
+          <span class="archive-label">DAYDREAM SPACE DESIGN ARCHIVE</span>
           <h1>白日梦计划</h1>
-          <p class="subtitle">一些还没说清楚的念头，也可以先被好好保存。</p>
-          <p class="quiet-copy">这里保存真实空间里发生过的白日梦。<br />有些来自旧蕾丝，<br />有些来自孩子画下的一张纸，<br />有些还在路上。</p>
-          <button class="primary-action" data-go="index">进入展馆</button>
+          <p class="subtitle">一个关于空间策划与设计的线上档案。</p>
+          <p class="quiet-copy">我们整理那些一开始说不清楚的真实空间：<br />村里的老房子、旧粮仓、旧场地、小店和正在成形的项目。<br />从场地环境、主理人想法、用户需求和市场语境出发，<br />把模糊、散乱的早期念头，<br />整理成可以停留、体验、传播和落地的空间方案。</p>
+          <button class="primary-action" data-go="index">进入空间档案</button>
         </div>
       </section>
 
@@ -23,33 +23,33 @@
         <header class="page-head">
           <span class="archive-label">CURRENT EXHIBITION</span>
           <h2>白日梦计划</h2>
-          <p>几扇门半开着。可以先从档案室开始，也可以带走一张自己的档案。</p>
+          <p>先从真实空间档案开始。你也可以去实验台生成一张自己的白日梦档案，或在尾厅留下一个正在筹备的空间问题。</p>
         </header>
         <nav class="map-grid" aria-label="白日梦计划入口">
           <button class="map-room room-01" data-go="archive">
-            <span class="room-number">主入口</span>
+            <span class="room-number">CURRENT EXHIBITION</span>
             <strong>白日梦档案室</strong>
-            <small>翻阅真实空间里已经发生的白日梦。</small>
+            <small>看真实空间如何从模糊想法，被整理成可停留、可体验、可传播、可落地的设计方案。</small>
           </button>
           <button class="map-room room-02" data-go="seal">
-            <span class="room-number">副入口</span>
-            <strong>白日梦实验室</strong>
-            <small>实验 001｜塑封我的白日梦</small>
+            <span class="room-number">LAB 001</span>
+            <strong>塑封我的白日梦</strong>
+            <small>一个轻量小实验：选一张照片，写一句话，生成一张可以带走的白日梦档案卡。</small>
           </button>
           <button class="map-room room-03" data-go="contact">
-            <span class="room-number">出口</span>
-            <strong>一起整理空间白日梦</strong>
-            <small>如果你也有一个还没说清楚的空间念头，可以在尾厅留下一条线索。</small>
+            <span class="room-number">EXIT HALL</span>
+            <strong>一起整理你的空间白日梦</strong>
+            <small>如果你也有老房子、小店、乡村空间或商业场地正在筹备，可以从这里开始聊。</small>
           </button>
         </nav>
       </section>
 
       <section id="screen-archive" class="screen" data-screen="archive">
         <header class="page-head with-back">
-          <button class="text-action" data-go="index">返回房间索引</button>
+          <button class="text-action" data-go="index">返回入口</button>
           <span class="archive-label">MAIN EXHIBITION</span>
           <h2>白日梦档案室</h2>
-          <p>几份真实空间里的白日梦，被暂时放在这里。</p>
+          <p>这里不是作品列表，而是空间策划与设计判断的档案：一个空间原本有什么、卡在哪里、我们如何判断主线，并让它成为可以落地的空间方案。</p>
         </header>
         <div id="sample-list" class="exhibit-cabinet"></div>
       </section>
@@ -60,10 +60,10 @@
 
       <section id="screen-seal" class="screen" data-screen="seal">
         <header class="page-head with-back">
-          <button class="text-action" data-go="index">返回房间索引</button>
-          <span class="archive-label">LAB</span>
+          <button class="text-action" data-go="index">返回入口</button>
+          <span class="archive-label">LAB 001</span>
           <h2>塑封我的白日梦</h2>
-          <p>这里是一张小小的封存台。<br />选一张照片，写下一句还没说清楚的话，把它轻轻放好。</p>
+          <p>这是白日梦计划里的一个小实验。<br />选一张照片，写下一句还没说清楚的话，把它生成一张可以带走的白日梦档案卡。</p>
         </header>
         <section class="seal-table sealed-card">
           <ol class="seal-steps" aria-label="塑封步骤">
@@ -84,8 +84,8 @@
           <canvas id="card-canvas" width="900" height="1260" aria-label="生成的白日梦档案卡"></canvas>
           <div class="button-grid">
             <button id="download-card" class="primary-action">保存我的白日梦档案</button>
-            <button class="secondary-action" data-go="archive">去白日梦档案室</button>
-            <button class="secondary-action" data-go="contact">去尾厅聊聊空间</button>
+            <button class="secondary-action" data-go="archive">去看真实空间档案</button>
+            <button class="secondary-action" data-go="contact">去尾厅聊聊空间项目</button>
           </div>
           <p class="save-tip">如果浏览器无法下载，可以长按图片或截图保存。</p>
         </section>
@@ -93,20 +93,20 @@
 
       <section id="screen-contact" class="screen" data-screen="contact">
         <div class="sealed-card tail-hall">
-          <button class="text-action" data-go="index">返回房间索引</button>
+          <button class="text-action" data-go="index">返回入口</button>
           <span class="archive-label">EXIT HALL</span>
-          <h2>一起整理空间白日梦</h2>
-          <p class="quiet-copy">有些空间不是没有内容。<br />只是还没被整理成可以被理解、被体验、被记住的样子。</p>
-          <p class="quiet-copy">先选一张更接近你现在状态的问题卡。尾厅会把它翻成一条整理线索。</p>
+          <h2>一起整理你的空间白日梦</h2>
+          <p class="quiet-copy">有些空间不是没有内容。<br />只是还没被整理成清楚的定位、体验动线、记忆点和落地设计。</p>
+          <p class="quiet-copy">如果你正在筹备老房子改造、乡村空间、小店、餐饮、民宿、展陈或复合商业空间，可以先选一张更接近你现在状态的问题卡。</p>
           <div id="problem-grid" class="problem-grid"></div>
           <div id="problem-response" class="problem-response" hidden></div>
-          <button id="show-contact-placeholder" class="secondary-action light-contact">我想直接聊聊空间</button>
+          <button id="show-contact-placeholder" class="secondary-action light-contact">我想聊聊空间策划与设计</button>
           <div id="contact-placeholder" class="wechat-box" hidden>
-            联系方式正式上线前替换。你可以先通过私信联系 Echo / Yun，并备注：白日梦计划。
+            联系方式正式上线前替换。你可以先通过私信联系 Echo / Yun，并备注：空间策划与设计。
           </div>
           <p id="contact-status" class="save-tip" aria-live="polite"></p>
           <div id="tail-contact" hidden>
-            <p class="quiet-copy">如果你也有一个正在成形、还没完全说清楚的空间，<br />我们可以先一起看看：<br />它原本有什么，<br />什么值得被看见，<br />什么可以被体验、传播和记住。</p>
+            <p class="quiet-copy">如果你也有一个正在成形、还没完全说清楚的空间，<br />我们可以先一起看看：<br />场地原本有什么，<br />主理人真正想做什么，<br />用户为什么会来，<br />什么值得被体验、传播和记住，<br />最后如何落成一个清楚的空间方案。</p>
           </div>
         </div>
       </section>
