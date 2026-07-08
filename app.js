@@ -20,15 +20,16 @@
   {
     id: "002",
     title: "铁路公社",
-    role: "旧场地更新与空间设计转译样本",
-    tagline: "一个带有铁路记忆的旧场地，从怀旧风格里重新长出可以停留、传播和再来的空间。",
-    description: "它不是普通旧改，而是让一个被闲置 / 被忽略的空间重新被打开。",
+    role: "铁路场地体验转译与空间设计样本",
+    tagline: "一组铁路线索，被整理成可以进入、停留、拍照和消费的目的地空间。",
+    description: "它不是把铁路符号堆成打卡点，而是把轨道、站台、车厢和路径感转译成一条可被使用的空间体验线。",
     type: "sample",
     image: "",
-    unclear: "铁路公社原本有铁路和旧场地线索，但一开始的问题不是“没有元素”，而是这些线索还不知道该怎么被使用。它很容易被做成只有怀旧风格的旧改空间，或者只是一个漂亮但不知道怎么停留的设计场景，也需要避免在同类旧改项目里变得普通。",
-    seen: "我们看见铁路元素、地方记忆、公共感、社区感，以及当下用户对可停留、可闲逛、可拍摄、可聚集的旧场地空间需求。真正有价值的不只是旧符号本身，而是这些旧线索还能继续长出新的使用方式。",
-    amplify: "我们的判断是，铁路公社不应该只做怀旧风格，也不应该只做漂亮设计。它需要先梳理空间主线，判断哪些旧元素值得保留，哪些内容能成为消费理由、传播理由和记忆点，再把铁路和旧场地线索转译成用户可以进入、停留、拍照、记住的体验叙事。",
-    outcome: "它最后被整理成一个旧场地更新方向：从怀旧风格出发，但不止于怀旧；从铁路记忆出发，但不止于铁路符号。空间最终要成为一个可停留、可传播、可复访、也能服务后续经营的复合场所，让被忽略的旧空间重新被打开。",
+    visual: "railway",
+    unclear: "铁路公社一开始最容易卡在“铁路元素怎么用”这件事上：如果只做怀旧风格或堆放铁路符号，它会变成一个好拍但不一定好停留的主题场景；如果只做漂亮设计，又会失去铁路场地本身的识别度。",
+    seen: "我们从场地、主理人想法和市场趋势里看见了几条可以被转译的线索：轨道带来的方向感，站台带来的停留感，车厢窗口带来的观看感，红白色块和信号灯带来的传播记忆点，以及年轻用户对轻打卡、轻游逛、咖啡外摆和户外停留的需求。",
+    amplify: "我们的策划与设计判断是，铁路公社不应该只做“铁路主题装饰”，而要把铁路语言变成空间组织方式：用轨道引导路径，用站台组织停留，用车厢和窗口制造拍照记忆点，用咖啡与外摆承接消费，让用户不是只路过拍一张，而是愿意走进去、坐下来、拍下来、再记住这里。",
+    outcome: "它最后被整理成一个铁路咖啡目的地空间方案：入口有清晰的铁路识别，路径有轨道和斑马线引导，室内外有站台式停留区和车厢感窗口，红白色彩、信号灯和标识系统共同形成传播记忆点。铁路不只是主题，而成为进入、停留、拍摄和消费的空间线索。"
   },
   {
     id: "003",
@@ -88,11 +89,12 @@ function renderSamples() {
 function renderSampleCard(sample) {
   const coreClass = sample.type === "core" ? " is-core" : "";
   const pendingClass = sample.type === "pending" ? " is-pending" : "";
+  const visualClass = sample.visual ? ` is-${sample.visual}` : "";
   const imageMarkup = sample.image
     ? `<img src="${sample.image}" alt="${sample.title}空间素材" />`
     : `<span>${sample.type === "core" ? "第一间白日梦展馆" : "档案位置"}</span>`;
   return `
-    <button class="sample-card${coreClass}${pendingClass}" data-sample="${sample.id}">
+    <button class="sample-card${coreClass}${pendingClass}${visualClass}" data-sample="${sample.id}">
       <span class="archive-label">DREAM ${sample.id}</span>
       <div class="photo-frame">${imageMarkup}</div>
       <h3>${sample.title}</h3>
@@ -118,9 +120,10 @@ function renderDetail(sampleId) {
     return;
   }
 
+  const visualClass = sample.visual ? ` is-${sample.visual}` : "";
   const heroMarkup = sample.image
     ? `<figure class="detail-hero"><img src="${sample.image}" alt="${sample.title}空间素材" /><figcaption>${sample.description}</figcaption></figure>`
-    : `<div class="detail-hero is-placeholder"><span>${sample.description}</span></div>`;
+    : `<div class="detail-hero is-placeholder${visualClass}"><span>${sample.description}</span></div>`;
   const evidenceMarkup = sample.evidence?.length
     ? `<div class="evidence-strip">${sample.evidence.map((item) => `
         <figure>

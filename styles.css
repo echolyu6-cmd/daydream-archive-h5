@@ -105,6 +105,59 @@ textarea { min-height: 96px; resize: vertical; padding: 12px; }
 .side-samples { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .sample-card.is-core { min-height: 360px; padding: 18px; }
 .sample-card.is-core .photo-frame { height: 190px; }
+.sample-card.is-railway .photo-frame,
+.detail-hero.is-railway {
+  background:
+    linear-gradient(90deg, rgba(168,70,53,.16) 0 13%, transparent 13% 23%, rgba(255,250,243,.74) 23% 100%),
+    repeating-linear-gradient(0deg, transparent 0 22px, rgba(36,33,29,.10) 22px 24px),
+    linear-gradient(135deg, rgba(255,250,243,.92), rgba(235,225,213,.76));
+}
+.sample-card.is-railway .photo-frame::before,
+.detail-hero.is-railway::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 22px;
+  top: 52%;
+  height: 2px;
+  border-top: 2px solid rgba(36,33,29,.45);
+  border-bottom: 2px solid rgba(36,33,29,.28);
+  transform: translateY(-50%) rotate(-6deg);
+  background: transparent;
+}
+.sample-card.is-railway .photo-frame::after,
+.detail-hero.is-railway::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  background:
+    radial-gradient(circle at 24% 56%, rgba(168,70,53,.86) 0 6px, transparent 7px),
+    radial-gradient(circle at 52% 50%, rgba(36,33,29,.74) 0 5px, transparent 6px),
+    radial-gradient(circle at 78% 44%, rgba(168,70,53,.86) 0 6px, transparent 7px),
+    repeating-linear-gradient(90deg, rgba(168,70,53,.72) 0 14px, rgba(255,250,243,.86) 14px 28px);
+  background-size: auto, auto, auto, 112px 18px;
+  background-position: 0 0, 0 0, 0 0, right 18px bottom 16px;
+  background-repeat: no-repeat;
+  opacity: .78;
+  pointer-events: none;
+}
+.sample-card.is-railway .photo-frame span {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  justify-self: start;
+  margin: 0 0 16px 18px;
+  border: 1px solid rgba(36,33,29,.18);
+  padding: 4px 8px;
+  color: var(--accent);
+  background: rgba(255,250,243,.72);
+}
+.detail-hero.is-placeholder.is-railway span {
+  color: var(--ink);
+  border: 1px solid rgba(36,33,29,.18);
+  padding: 10px;
+  background: rgba(255,250,243,.78);
+}
 .sample-card.is-pending { opacity: .82; }
 .sample-role { display: block; margin: 8px 0; color: var(--accent); font-size: 14px; line-height: 1.5; }
 .exhibit-buttons { display: grid; gap: 10px; margin-top: 18px; }
