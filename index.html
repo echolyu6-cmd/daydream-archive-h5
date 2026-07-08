@@ -9,15 +9,12 @@
   </head>
   <body>
     <main class="app-shell">
-      <section id="screen-open" class="screen is-active" data-screen="open">
-        <div class="sealed-card opening-card">
+      <section id="screen-gate" class="screen is-active" data-screen="gate">
+        <div class="opening-card">
           <div class="opening-portal" aria-hidden="true">
             <div class="portal-photo">
+              <img src="./assets/fuli-gate.jpg" alt="" />
               <span class="photo-mark">REAL SPACE / ARCHIVE</span>
-              <span class="photo-wall"></span>
-              <span class="photo-table"></span>
-              <span class="photo-note note-a"></span>
-              <span class="photo-note note-b"></span>
             </div>
             <svg class="portal-line" viewBox="0 0 280 230" focusable="false" aria-hidden="true">
               <path d="M42 208 C39 157 41 91 53 43 C103 31 179 31 230 45 C239 93 242 157 235 207" />
@@ -35,9 +32,8 @@
           </div>
           <span class="archive-label">DAYDREAM SPACE DESIGN ARCHIVE</span>
           <h1>白日梦计划</h1>
-          <p class="subtitle">一个关于空间策划与设计的线上档案。</p>
-          <p class="quiet-copy">我们整理那些一开始说不清楚的真实空间：<br />村里的老房子、旧粮仓、旧场地、小店和正在成形的项目。<br />从场地环境、主理人想法、市场趋势和用户需求出发，<br />把模糊、散乱的早期念头，<br />整理成可以停留、体验、传播和落地的空间方案。</p>
-          <button class="primary-action" data-go="index" data-open-archive>进入空间档案</button>
+          <p class="subtitle">空间策划与设计档案</p>
+          <button class="primary-action" data-go="index" data-open-archive>打开空间档案</button>
         </div>
       </section>
 
@@ -45,23 +41,23 @@
         <header class="page-head">
           <span class="archive-label">CURRENT EXHIBITION</span>
           <h2>白日梦计划</h2>
-          <p>先从真实空间档案开始。你也可以去实验台生成一张自己的白日梦档案，或在尾厅留下一个正在筹备的空间问题。</p>
+          <p>先看真实空间如何从说不清楚，变成可以停留、体验、传播和落地的方案。</p>
         </header>
         <nav class="map-grid" aria-label="白日梦计划入口">
           <button class="map-room room-01" data-go="archive">
             <span class="room-number">CURRENT EXHIBITION</span>
             <strong>白日梦档案室</strong>
-            <small>看真实空间如何从模糊想法，被整理成可停留、可体验、可传播、可落地的设计方案。</small>
+            <small>从第一展馆「福里农舍」开始。</small>
           </button>
           <button class="map-room room-02" data-go="seal">
             <span class="room-number">LAB 001</span>
             <strong>塑封我的白日梦</strong>
-            <small>一个轻量小实验：选一张照片，写一句话，生成一张可以带走的白日梦档案卡。</small>
+            <small>选一张照片，封存一句还没说清楚的话。</small>
           </button>
           <button class="map-room room-03" data-go="contact">
             <span class="room-number">EXIT HALL</span>
             <strong>一起整理你的空间白日梦</strong>
-            <small>如果你也有老房子、小店、乡村空间、餐饮、民宿、展陈或商业场地正在筹备，可以从这里开始聊。</small>
+            <small>有正在筹备的空间问题，可以从尾厅留下线索。</small>
           </button>
         </nav>
       </section>
@@ -71,8 +67,7 @@
           <button class="text-action" data-go="index">返回入口</button>
           <span class="archive-label">MAIN EXHIBITION</span>
           <h2>白日梦档案室</h2>
-          <p>这里不是作品列表，而是空间策划与设计判断的档案：一个空间原本有什么、卡在哪里、市场里有什么机会、主理人真正想做什么，我们如何判断主线，并让它成为可以落地的空间方案。</p>
-          <p>在这里，“白日梦”不是空想。它指的是一个真实空间在成形之前，那些还没被说清楚、但已经隐约存在的方向：场地里的线索、主理人的想法、市场趋势里的机会、用户可能停留和消费的方式，以及未来可以被体验、传播和记住的空间可能。</p>
+          <p>几份真实空间的策划与设计判断，被暂时放在这里。</p>
         </header>
         <div id="sample-list" class="exhibit-cabinet"></div>
       </section>

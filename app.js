@@ -4,8 +4,14 @@
     title: "福里农舍",
     role: "村屋改造与空间机制设计样本",
     tagline: "一间村里的老房子，被重新整理成可以停留、表达和留下痕迹的复合空间。",
-    description: "白日梦计划从这间老房子的空间改造里长出来。",
+    description: "第一展馆｜村屋改造 + 空间机制设计",
     type: "core",
+    image: "./assets/fuli-gate.jpg",
+    evidence: [
+      { title: "旧蕾丝", image: "./assets/fuli-lace.jpg" },
+      { title: "白日梦纸", image: "./assets/fuli-daydream-paper.jpg" },
+      { title: "三明治", image: "./assets/fuli-sandwich.jpg" }
+    ],
     unclear: "福里原本是一间村里的老房子，有乡村日常、旧物和人情味，但一开始并不清楚：它应该只是咖啡馆、亲子空间，还是一个可以让人慢下来、停下来、留下点什么的复合空间。它也需要判断当下用户为什么愿意来乡村空间、为什么愿意拍照分享和再次回来。",
     seen: "我们看见老房子里已经存在的生活痕迹、主理人想保留的人情味，以及市场里对松弛、真实、可参与乡村空间的需求。旧蕾丝、等待时的空隙、孩子画下的纸和客人停留的片刻，都可以成为空间被记住的证据。",
     amplify: "我们的判断是，福里最值得放大的不是新增装饰，也不是单一打卡点，而是“允许人停留、表达、留下痕迹”的空间机制。空间策划与设计要把老房子的生活感整理成消费理由、停留理由和传播理由，而不是包装成另一个标准答案。",
@@ -18,6 +24,7 @@
     tagline: "一个带有铁路记忆的旧场地，从怀旧风格里重新长出可以停留、传播和再来的空间。",
     description: "它不是普通旧改，而是让一个被闲置 / 被忽略的空间重新被打开。",
     type: "sample",
+    image: "",
     unclear: "铁路公社原本有铁路和旧场地线索，但一开始的问题不是“没有元素”，而是这些线索还不知道该怎么被使用。它很容易被做成只有怀旧风格的旧改空间，或者只是一个漂亮但不知道怎么停留的设计场景，也需要避免在同类旧改项目里变得普通。",
     seen: "我们看见铁路元素、地方记忆、公共感、社区感，以及当下用户对可停留、可闲逛、可拍摄、可聚集的旧场地空间需求。真正有价值的不只是旧符号本身，而是这些旧线索还能继续长出新的使用方式。",
     amplify: "我们的判断是，铁路公社不应该只做怀旧风格，也不应该只做漂亮设计。它需要先梳理空间主线，判断哪些旧元素值得保留，哪些内容能成为消费理由、传播理由和记忆点，再把铁路和旧场地线索转译成用户可以进入、停留、拍照、记住的体验叙事。",
@@ -30,6 +37,7 @@
     tagline: "一个旧粮仓里的面包项目，从内容堆叠中整理出快乐面包市集的空间主线。",
     description: "山窑不是缺内容，而是需要把旧粮仓、面包、窑火、IP 和乡村场地整理成一条清楚的空间主线。",
     type: "sample",
+    image: "",
     unclear: "山窑原本有旧粮仓、面包、窑火、IP、杂货铺和乡村场地，内容很多，但一开始不清楚：它到底是普通面包店、乡村咖啡、亲子打卡点，还是一个有自己气质的复合空间。它也需要判断在面包、乡村和市集类项目里，怎样避免普通化。",
     seen: "我们看见旧粮仓的空间底子、面包的手作感、窑火带来的温度、乡村场地的松弛感，以及市场里对轻松、可拍、可分享、可复访的乡村消费空间需求。面包狗和市集氛围可以作为记忆点，但不能盖过空间主线。",
     amplify: "我们的判断是，山窑最值得放大的不是“漂亮面包店”，而是旧粮仓里的快乐面包市集感。空间策划要先收束主线，再让视觉、IP、动线、陈列和传播都围绕这条主线展开，让内容同时服务体验、传播和后续经营。",
@@ -67,7 +75,7 @@ function renderSamples() {
   sampleList.innerHTML = `
     <div class="cabinet-gate" id="cabinet-gate">
       <span class="archive-label">ARCHIVE CABINET</span>
-      <p>柜门还合着。打开它，翻看几个真实空间从模糊到清晰的过程。</p>
+      <p>打开档案柜，从第一展馆开始。</p>
       <button class="primary-action" id="open-cabinet">打开档案柜</button>
     </div>
     <div id="cabinet-content" class="cabinet-content" hidden>
@@ -80,10 +88,13 @@ function renderSamples() {
 function renderSampleCard(sample) {
   const coreClass = sample.type === "core" ? " is-core" : "";
   const pendingClass = sample.type === "pending" ? " is-pending" : "";
+  const imageMarkup = sample.image
+    ? `<img src="${sample.image}" alt="${sample.title}空间素材" />`
+    : `<span>${sample.type === "core" ? "第一间白日梦展馆" : "档案位置"}</span>`;
   return `
     <button class="sample-card${coreClass}${pendingClass}" data-sample="${sample.id}">
       <span class="archive-label">DREAM ${sample.id}</span>
-      <div class="photo-frame"><span>${sample.type === "core" ? "第一间白日梦展馆" : "档案位置"}</span></div>
+      <div class="photo-frame">${imageMarkup}</div>
       <h3>${sample.title}</h3>
       <strong class="sample-role">${sample.role}</strong>
       <p>${sample.tagline}</p>
@@ -107,19 +118,36 @@ function renderDetail(sampleId) {
     return;
   }
 
+  const heroMarkup = sample.image
+    ? `<figure class="detail-hero"><img src="${sample.image}" alt="${sample.title}空间素材" /><figcaption>${sample.description}</figcaption></figure>`
+    : `<div class="detail-hero is-placeholder"><span>${sample.description}</span></div>`;
+  const evidenceMarkup = sample.evidence?.length
+    ? `<div class="evidence-strip">${sample.evidence.map((item) => `
+        <figure>
+          <img src="${item.image}" alt="${item.title}素材" />
+          <figcaption>${item.title}</figcaption>
+        </figure>
+      `).join("")}</div>`
+    : "";
+
   sampleDetail.innerHTML = `
     <button class="text-action" data-go="archive">返回档案室</button>
     <button class="text-action" data-go="index">返回房间索引</button>
+    ${heroMarkup}
     <span class="archive-label">DREAM ${sample.id}</span>
     <h2>${sample.title}</h2>
     <p class="subtitle">${sample.role}</p>
-    <p class="quiet-copy">${sample.tagline}</p>
-    <div class="theme-structure">
-      ${renderThemePoint("space-question", "这个空间一开始卡在哪里？", sample.unclear)}
-      ${renderThemePoint("seen", "我们从场地、主理人想法和市场趋势里看见了什么？", sample.seen)}
-      ${renderThemePoint("judgment", "我们的策划与设计判断是什么？", sample.amplify)}
-      ${renderThemePoint("outcome", "它最后被整理成了什么空间方案？", sample.outcome)}
-    </div>
+    <p class="detail-lead">${sample.tagline}</p>
+    ${renderThemePoint("judgment is-featured", "我们的策划与设计判断是什么？", sample.amplify)}
+    ${evidenceMarkup}
+    <details class="detail-drawer">
+      <summary>展开完整档案判断</summary>
+      <div class="theme-structure">
+        ${renderThemePoint("space-question", "这个空间一开始卡在哪里？", sample.unclear)}
+        ${renderThemePoint("seen", "我们从场地、主理人想法和市场趋势里看见了什么？", sample.seen)}
+        ${renderThemePoint("outcome", "它最后被整理成了什么空间方案？", sample.outcome)}
+      </div>
+    </details>
   `;
   showScreen("detail");
 }
@@ -350,10 +378,10 @@ function chooseProblem(index) {
 document.addEventListener("click", (event) => {
   const goTarget = event.target.closest("[data-go]");
   if (goTarget?.hasAttribute("data-open-archive")) {
-    const openScreen = document.querySelector("#screen-open");
-    openScreen.classList.add("is-opening");
+    const gateScreen = document.querySelector("#screen-gate");
+    gateScreen.classList.add("is-opening");
     setTimeout(() => {
-      openScreen.classList.remove("is-opening");
+      gateScreen.classList.remove("is-opening");
       showScreen(goTarget.dataset.go);
     }, 360);
     return;
