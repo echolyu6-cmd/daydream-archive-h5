@@ -39,7 +39,7 @@ document.addEventListener("click", (event) => {
   const locked = event.target.closest("[data-locked]");
   if (locked) {
     const note = document.querySelector(".locked-note");
-    note.textContent = "这份白日梦还在漂，晚点再来捞。";
+    note.textContent = "这份空间档案还在等待收录。";
     locked.animate([
       { transform: "translateX(0) rotate(0deg)" },
       { transform: "translateX(-4px) rotate(-2deg)" },
@@ -88,3 +88,4 @@ shell?.addEventListener("scroll", () => {
   }, {screen:screens[0], distance:Infinity}).screen;
   document.body.dataset.screen = current?.dataset.screen || "opening";
 }, {passive:true});
+
