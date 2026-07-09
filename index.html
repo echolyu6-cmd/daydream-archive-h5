@@ -4,123 +4,209 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f6efe6" />
-  <title>白日梦计划 V2.1｜已确认文案替换版</title>
+  <title>白日梦计划 V2.6.4｜空间梦对外文案终版清洁</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <main class="app-shell" id="app-shell">
     <section id="screen-cover" class="screen cover-screen is-active" data-screen="cover">
-      <article class="cover-book" aria-label="白日梦档案封面">
+      <article class="cover-book" aria-label="空间梦档案封面">
         <span class="page-stack"></span>
         <span class="binding-pin pin-top"></span>
         <span class="binding-pin pin-mid"></span>
         <span class="binding-pin pin-bottom"></span>
         <span class="cover-label">DAYDREAM ARCHIVE</span>
         <h1>白日梦计划</h1>
-        <p>有些白日梦，<br />后来真的长成了一个地方。</p>
+        <p>这里收录着一些<br />关于空间的梦。<br /><br />有人先把这些梦当真，<br />它们才慢慢有了形状。</p>
         <small>发起人<br />Echo & Yun</small>
-        <i>FILE 001</i>
         <span class="plastic-film"></span>
       </article>
-      <button class="entry-button" data-open-book>拆开</button>
+      <button class="entry-button" data-open-book>拆开档案</button>
     </section>
 
     <section id="screen-cards" class="screen cards-screen" data-screen="cards">
       <header class="page-head">
         <span>ARCHIVE CARDS</span>
         <h2>目前夹着 3 张档案卡。</h2>
+        <p class="archive-context">这些档案，来自一些老房子、院子、小店和旧场地。</p>
       </header>
       <div class="card-collage" aria-label="档案卡">
         <button class="archive-card c1" data-go="fuli"><small>DREAM 001</small><strong>福里农舍</strong><em>FULLEEE</em></button>
         <button class="archive-card c2" data-go="shanyao"><small>DREAM 002</small><strong>山窑</strong><em>SLOOOOW</em></button>
-        <button class="archive-card c3" data-go="railway"><small>DREAM 003</small><strong>铁路公社</strong></button>
+        <button class="archive-card c3" data-go="railway"><small>DREAM 003</small><strong>铁路公社</strong><em>RAILWAY COMMUNE</em></button>
         <button class="archive-card next-card" data-go="leave"><small>NEXT</small><strong>下一张档案卡，<br />也许是你的。</strong></button>
       </div>
     </section>
 
     <section id="screen-fuli" class="screen case-screen fuli-screen" data-screen="fuli">
-      <button class="home-button" data-go="cards">回到目录</button>
+      <nav class="quick-tabs" aria-label="档案行动">
+        <button type="button" data-go="cards">档案室</button>
+        <button type="button" data-go="leave">留下空间梦</button>
+      </nav>
       <article class="case-file">
-        <span class="file-label">DREAM 001</span>
-        <div class="case-photo tall"><img src="./assets/placeholder-house.svg" alt="" /></div>
+        <aside class="exhibit-note">
+          <strong>DREAM 001<br />福里农舍<br />FULLEEE</strong>
+          <p>原来只是村里一栋废弃老房子。<br />后来，有人在这里喝咖啡、坐很久，<br />也把一点空间梦留了下来。</p>
+        </aside>
+        <div class="case-photo tall"><img src="./assets/fuli-01.jpg" onerror="this.onerror=null;this.src='./assets/placeholder-house.svg'" alt="福里农舍的空间照片" /></div>
         <h2>福里农舍</h2>
         <p>一间还在发生的乡村小空间。</p>
-        <div class="clue-row"><span>村里的老房子</span><span>蓝门</span><span>蕾丝</span><span>白日梦纸</span></div>
-        <button class="entry-button" data-go="fuli-more">继续翻阅</button>
+        <dl class="archive-fields"><div><dt>地点</dt><dd>浙江德清</dd></div><div><dt>状态</dt><dd>已发生</dd></div><div><dt>关键词</dt><dd>老房子 / 停留 / 空间梦</dd></div></dl>
+        <div class="clue-row"><span>村里的老房子</span><span>蓝门</span><span>蕾丝</span><span>空间梦纸</span></div>
+        <section class="related-archives" aria-label="相关档案">
+          <h3>还想翻哪张档案？</h3>
+          <div>
+            <button type="button" class="related-card" data-go="shanyao"><small>DREAM 002</small><strong>山窑</strong><span>旧粮仓还在，树也还在。</span></button>
+            <button type="button" class="related-card" data-go="railway"><small>DREAM 003</small><strong>铁路公社</strong><span>一条可以被继续走下去的线索。</span></button>
+          </div>
+          <button type="button" class="contact-tag" data-open-contact>想聊聊这个空间？</button>
+        </section>
       </article>
     </section>
 
     <section id="screen-fuli-more" class="screen case-screen" data-screen="fuli-more">
-      <button class="home-button" data-go="cards">回到目录</button>
+      <nav class="quick-tabs" aria-label="档案行动">
+        <button type="button" data-go="cards">档案室</button>
+        <button type="button" data-go="leave">留下空间梦</button>
+      </nav>
       <article class="case-file spread-file">
         <span class="file-label">FULLEEE / NOTES</span>
         <h2>房子被重新打开。</h2>
         <div class="three-notes">
-          <section><img src="./assets/placeholder-house.svg" alt="" /><strong>停留被接住</strong><p>不必马上离开，可以坐一会儿。</p></section>
-          <section><img src="./assets/placeholder-stay.svg" alt="" /><strong>新的痕迹长出来</strong><p>有人写下，也有人带走。</p></section>
-          <section><img src="./assets/placeholder-reply.svg" alt="" /><strong>影像资料袋</strong><p>蓝门、蕾丝、白日梦纸。</p></section>
+          <section><img src="./assets/fuli-01.jpg" onerror="this.onerror=null;this.src='./assets/placeholder-house.svg'" alt="福里农舍的空间照片" /><strong>停留被接住</strong><p>不必马上离开，可以坐一会儿。</p></section>
+          <section><img src="./assets/fuli-02.jpg" onerror="this.onerror=null;this.src='./assets/placeholder-stay.svg'" alt="福里农舍的空间照片" /><strong>新的痕迹长出来</strong><p>有人写下，也有人带走。</p></section>
+          <section><img src="./assets/fuli-03.jpg" onerror="this.onerror=null;this.src='./assets/placeholder-reply.svg'" alt="福里农舍的空间照片" /><strong>影像资料袋</strong><p>蓝门、蕾丝、空间梦纸。</p></section>
         </div>
-        <button class="entry-button" data-go="shanyao">再翻一页</button>
+        <section class="related-archives" aria-label="相关档案">
+          <h3>还想翻哪张档案？</h3>
+          <div>
+            <button type="button" class="related-card" data-go="shanyao"><small>DREAM 002</small><strong>山窑</strong><span>旧粮仓还在，树也还在。</span></button>
+            <button type="button" class="related-card" data-go="railway"><small>DREAM 003</small><strong>铁路公社</strong><span>一条可以被继续走下去的线索。</span></button>
+          </div>
+          <button type="button" class="contact-tag" data-open-contact>想聊聊这个空间？</button>
+        </section>
       </article>
     </section>
 
     <section id="screen-shanyao" class="screen case-screen" data-screen="shanyao">
-      <button class="home-button" data-go="cards">回到目录</button>
+      <nav class="quick-tabs" aria-label="档案行动">
+        <button type="button" data-go="cards">档案室</button>
+        <button type="button" data-go="leave">留下空间梦</button>
+      </nav>
       <article class="case-file">
-        <span class="file-label">DREAM 002</span>
-        <div class="case-photo"><img src="./assets/placeholder-dream.svg" alt="" /></div>
+        <aside class="exhibit-note">
+          <strong>DREAM 002<br />山窑<br />SLOOOOW</strong>
+          <p>一座旧粮仓，<br />一棵被留下的大树。<br />有些地方不急着变新，<br />它可以先慢慢发酵。</p>
+        </aside>
+        <div class="case-photo"><img src="./assets/shanyao-01.jpg" onerror="this.onerror=null;this.src='./assets/placeholder-dream.svg'" alt="山窑旧粮仓和大树的空间线索" /></div>
         <h2>山窑</h2>
-        <p>一个旧粮仓，慢慢显影成快乐面包市集。</p>
+        <p>旧粮仓还在，树也还在。</p>
+        <dl class="archive-fields"><div><dt>地点</dt><dd>浙江德清</dd></div><div><dt>状态</dt><dd>正在生长</dd></div><div><dt>关键词</dt><dd>旧粮仓 / 大树 / 慢发酵</dd></div></dl>
         <div class="clue-row"><span>旧粮仓</span><span>面包</span><span>窑火</span><span>SLOOOOW</span></div>
-        <button class="entry-button" data-go="railway">再翻一页</button>
+        <section class="related-archives" aria-label="相关档案">
+          <h3>还想翻哪张档案？</h3>
+          <div>
+            <button type="button" class="related-card" data-go="fuli"><small>DREAM 001</small><strong>福里农舍</strong><span>一个空间梦真的长成了地方。</span></button>
+            <button type="button" class="related-card" data-go="railway"><small>DREAM 003</small><strong>铁路公社</strong><span>一条可以被继续走下去的线索。</span></button>
+          </div>
+          <button type="button" class="contact-tag" data-open-contact>想聊聊这个空间？</button>
+        </section>
       </article>
     </section>
 
     <section id="screen-railway" class="screen case-screen" data-screen="railway">
-      <button class="home-button" data-go="cards">回到目录</button>
+      <nav class="quick-tabs" aria-label="档案行动">
+        <button type="button" data-go="cards">档案室</button>
+        <button type="button" data-go="leave">留下空间梦</button>
+      </nav>
       <article class="case-file">
-        <span class="file-label">DREAM 003</span>
-        <div class="case-photo"><img src="./assets/placeholder-stay.svg" alt="" /></div>
+        <aside class="exhibit-note">
+          <strong>DREAM 003<br />铁路公社</strong>
+          <p>铁路不只是一种主题。<br />它也可以是一条线索：<br />让人进入、停下，<br />再继续往前。</p>
+        </aside>
+        <div class="case-photo"><img src="./assets/railway-01.jpg" onerror="this.onerror=null;this.src='./assets/placeholder-stay.svg'" alt="铁路公社的空间线索" /></div>
         <h2>铁路公社</h2>
-        <p>铁路不只是主题，而是一条组织体验的空间线索。</p>
+        <p>一条可以被继续走下去的线索。</p>
+        <dl class="archive-fields"><div><dt>地点</dt><dd>浙江德清</dd></div><div><dt>状态</dt><dd>线索整理中</dd></div><div><dt>关键词</dt><dd>铁路 / 动线 / 继续往前</dd></div></dl>
         <div class="clue-row"><span>轨道</span><span>站台</span><span>窗口</span><span>停留</span></div>
-        <button class="entry-button" data-go="leave">继续翻阅</button>
+        <section class="related-archives" aria-label="相关档案">
+          <h3>还想翻哪张档案？</h3>
+          <div>
+            <button type="button" class="related-card" data-go="fuli"><small>DREAM 001</small><strong>福里农舍</strong><span>一个空间梦真的长成了地方。</span></button>
+            <button type="button" class="related-card" data-go="shanyao"><small>DREAM 002</small><strong>山窑</strong><span>旧粮仓还在，树也还在。</span></button>
+          </div>
+          <button type="button" class="contact-tag" data-open-contact>想聊聊这个空间？</button>
+        </section>
       </article>
     </section>
 
     <section id="screen-leave" class="screen leave-screen" data-screen="leave">
-      <button class="home-button" data-go="cards">回到目录</button>
+      <nav class="quick-tabs" aria-label="档案行动">
+        <button type="button" data-go="cards">档案室</button>
+      </nav>
       <article class="blank-page">
         <span class="file-label">NEXT PAGE</span>
-        <h2>留下一页</h2>
-        <p>有些地方，<br />还不知道会长成什么。</p>
-        <p>如果你也有这样一个地方，<br />可以先留下一页。</p>
-        <button class="entry-button" data-go="bag">我也想留下一页</button>
+        <h2>留下你的空间梦</h2>
+        <p>老房子、院子、小店，<br />或一块还没想清楚的场地。</p>
+        <p>几张照片，<br />一句卡住的话。</p>
+        <p>我们一起看看，<br />它怎么开始。</p>
+        <button class="entry-button" data-go="bag">分享空间梦</button>
       </article>
     </section>
 
     <section id="screen-bag" class="screen bag-screen" data-screen="bag">
-      <button class="home-button" data-go="cards">回到目录</button>
+      <nav class="quick-tabs" aria-label="档案行动">
+        <button type="button" data-go="cards">档案室</button>
+      </nav>
       <section class="bag-workbench" id="bag-workbench">
         <header class="page-head compact-head">
           <span>DROP BAG</span>
-          <h2>把一些线索放进档案袋</h2>
-          <p>上传一张图，<br />或留下一句话。<br />有一个就可以。</p>
+          <h2>分享你的空间梦</h2>
+          <p>几张照片，<br />一句卡住的话。</p>
         </header>
         <div class="clue-uploads">
-          <label class="clue-upload single-upload"><input id="clue-1" type="file" accept="image/*" /><span>线索</span><strong>上传一张图</strong><img id="preview-1" alt="" hidden /></label>
+          <label class="clue-upload"><input id="clue-1" type="file" accept="image/*" /><span>线索 01</span><strong>第一眼</strong><img id="preview-1" alt="" hidden /></label>
+          <label class="clue-upload"><input id="clue-2" type="file" accept="image/*" /><span>线索 02</span><strong>卡住的地方</strong><img id="preview-2" alt="" hidden /></label>
+          <label class="clue-upload"><input id="clue-3" type="file" accept="image/*" /><span>线索 03</span><strong>想做成的样子</strong><img id="preview-3" alt="" hidden /></label>
         </div>
-        <label class="bag-note"><span>或留下一句话</span><textarea id="bag-text" maxlength="80" placeholder="比如：&#10;这棵树想留下，&#10;但不知道周围怎么做。"></textarea></label>
-        <p class="bag-hint" id="bag-hint" hidden>上传一张图，或留下一句话。</p>
-        <button class="primary" id="send-bag">放进档案袋</button>
+        <label class="bag-note"><span>还有想说的吗？</span><small>不说也ok。</small><textarea id="bag-text" maxlength="80" placeholder="比如：这棵树想留下，但周围还不知道怎么做。"></textarea></label>
+        <p class="bag-hint" id="bag-hint" hidden>先放一点线索进来。</p>
+        <button class="primary" id="send-bag">生成我的空间梦</button>
       </section>
       <section class="receipt-result" id="receipt-result" hidden>
-        <div class="paper-bag"><span class="bag-flap"></span><strong>DAYDREAM ARCHIVE</strong><em>RECEIVED.</em></div>
-        <article class="receipt-card"><span id="receipt-code">DD-00027</span><h2>你的白日梦已经收到。</h2><p>Echo & Yun 会认真看看：<br />它原本有什么；<br />什么值得留下；<br />以及它可能会长成什么。</p><p id="receipt-extra"></p><strong class="growth-status">🌱<br />仍在生长</strong></article>
-        <button class="entry-button" id="talk-more">继续聊聊</button>
-        <div class="contact-slip" id="contact-slip" hidden><span>微信入口待替换</span><span>邮箱入口待替换</span><span>小红书入口待替换</span><p>照片只会在本地生成回执，不会自动公开。如果想继续聊聊，请把回执截图或照片发给 Echo & Yun。</p></div>
+        <article class="receipt-card space-dream-card">
+          <span class="card-kicker">DAYDREAM ARCHIVE</span>
+          <span id="receipt-code">DD-00027</span>
+          <h2>谢谢你分享<br />你的空间梦。</h2>
+          <p>我们一起看看，<br />它能怎么慢慢变成真的。</p>
+          <p id="receipt-extra"></p>
+          <strong class="growth-status">🌱<br />萌芽中</strong>
+        </article>
+        <button class="entry-button dream-contact-button" type="button" data-open-contact>继续聊聊</button>
       </section>
     </section>
+    <aside class="contact-overlay" id="contact-overlay" hidden>
+      <button class="contact-backdrop" type="button" data-close-contact aria-label="收起纸条"></button>
+      <section class="contact-paper" role="dialog" aria-modal="true" aria-label="继续聊聊">
+        <button class="contact-close" type="button" data-close-contact>收起</button>
+        <h3>继续聊聊</h3>
+        <p class="contact-lead">带着你的空间梦来，<br />我们一起看看。</p>
+        <div class="contact-grid">
+          <section class="contact-item qr-item">
+            <strong>微信</strong>
+            <!-- TODO: replace with real WeChat QR code. -->
+            <img src="./assets/wechat-placeholder.svg" alt="微信二维码占位" />
+            <span>扫码添加 Echo & Yun</span>
+          </section>
+        </div>
+        <button class="copy-link" type="button" data-copy-note>复制一段开场白</button>
+        <p class="copy-status" hidden></p>
+        <textarea class="copy-fallback" readonly hidden>你好，我想聊聊这个空间梦。
+我可以补充：
+1）几张空间照片
+2）一句卡住的话</textarea>
+      </section>
+    </aside>
   </main>
   <script src="./app.js"></script>
 </body>
