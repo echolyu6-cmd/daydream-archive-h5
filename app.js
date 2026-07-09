@@ -1,79 +1,76 @@
-﻿const screens = [...document.querySelectorAll(".screen")];
-
-const receiptTypes = [
-  ["已收录：未完成的角落", "这不是没用的地方，只是还没被安排一个理由。"],
-  ["已收录：正在发芽的房间", "它还很小，但已经有了要长出来的方向。"],
-  ["已收录：舍不得丢掉的东西", "有些旧物不是负担，是空间还没说完的话。"],
-  ["已收录：一扇还没打开的门", "你不一定要立刻完成它，可以先让它被看见。"],
-  ["已收录：漂浮中的白日梦", "它还没有落地，但已经开始寻找位置。"]
-];
-
-const answers = [
-  "你的空间可能不是缺内容，而是缺一个能把内容串起来的主线。\n先发 3 张照片，我们看第一眼。",
-  "你的空间可能不是缺内容，而是缺一个能把内容串起来的主线。\n先发 3 张照片，我们看第一眼。",
-  "你的空间可能不是缺内容，而是缺一个能把内容串起来的主线。\n先发 3 张照片，我们看第一眼。"
-];
+﻿const screens = [...document.querySelectorAll('.screen')];
+let hasClueImage = false;
 
 function showScreen(name){
   const target = screens.find(screen => screen.dataset.screen === name);
   if (!target) return;
-  screens.forEach(screen => screen.classList.toggle("is-active", screen === target));
+  screens.forEach(screen => screen.classList.toggle('is-active', screen === target));
   document.body.dataset.screen = name;
 }
 
-document.addEventListener("click", (event) => {
-  const seal = event.target.closest("[data-open-seal]");
-  if (seal) {
-    const opening = document.querySelector("#screen-opening");
-    opening.classList.add("is-opened");
-    window.setTimeout(() => showScreen("index"), 520);
+function makeReceiptCode(){
+  const now = new Date();
+  const day = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
+  const code = String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+  return `DD-${day}-${code}`;
+}
+
+document.addEventListener('click', (event) => {
+  const open = event.target.closest('[data-open-book]');
+  if (open) {
+    document.querySelector('#screen-cover')?.classList.add('is-opened');
+    window.setTimeout(() => showScreen('cards'), 420);
     return;
   }
 
-  const externalNote = event.target.closest("[data-external-note]");
-  if (externalNote) {
-    externalNote.textContent = externalNote.dataset.externalNote;
-    return;
-  }
-
-  const go = event.target.closest("[data-go]");
+  const go = event.target.closest('[data-go]');
   if (go) {
     showScreen(go.dataset.go);
-    return;
-  }
-
-  const q = event.target.closest("[data-question]");
-  if (q) {
-    const card = document.querySelector("#answer-card");
-    card.hidden = false;
-    card.textContent = answers[Number(q.dataset.question)] || answers[0];
   }
 });
 
-const photoInput = document.querySelector("#photo-input");
-const receiptPhoto = document.querySelector("#receipt-photo");
-photoInput?.addEventListener("change", () => {
-  const file = photoInput.files?.[0];
-  if (!file) return;
+const clueInput = document.querySelector('#clue-1');
+const cluePreview = document.querySelector('#preview-1');
+clueInput?.addEventListener('change', () => {
+  const file = clueInput.files?.[0];
+  if (!file || !cluePreview) return;
   const reader = new FileReader();
   reader.onload = () => {
-    receiptPhoto.innerHTML = `<img src="${reader.result}" alt="你的白日梦照片" />`;
+    cluePreview.src = reader.result;
+    cluePreview.hidden = false;
+    clueInput.closest('.clue-upload')?.classList.add('has-image');
+    hasClueImage = true;
+    document.querySelector('#bag-hint').hidden = true;
   };
   reader.readAsDataURL(file);
 });
 
-document.querySelector("#generate-receipt")?.addEventListener("click", () => {
-  const text = document.querySelector("#dream-text")?.value.trim();
-  const [stamp, line] = receiptTypes[Math.floor(Math.random() * receiptTypes.length)];
-  const now = new Date();
-  const day = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,"0")}${String(now.getDate()).padStart(2,"0")}`;
-  const code = String(Math.floor(Math.random() * 10000)).padStart(4,"0");
-  document.querySelector("#receipt-number").textContent = `白日梦回执 DAYDREAM-${day}-${code}`;
-  document.querySelector("#receipt-stamp").textContent = stamp;
-  document.querySelector("#receipt-line").textContent = line;
-  document.querySelector("#receipt-user-line").textContent = text || "留下一句还没说清楚的话。";
-  document.querySelector("#receipt-preview").animate([
-    { transform: "translateY(10px) scale(.985)", opacity: .72 },
-    { transform: "translateY(0) scale(1)", opacity: 1 }
-  ], { duration: 420, easing: "cubic-bezier(.16,.74,.22,1)" });
+document.querySelector('#bag-text')?.addEventListener('input', () => {
+  document.querySelector('#bag-hint').hidden = true;
+});
+
+document.querySelector('#send-bag')?.addEventListener('click', () => {
+  const workbench = document.querySelector('#bag-workbench');
+  const result = document.querySelector('#receipt-result');
+  const text = document.querySelector('#bag-text')?.value.trim() || '';
+  const hint = document.querySelector('#bag-hint');
+
+  if (!hasClueImage && !text) {
+    hint.hidden = false;
+    return;
+  }
+
+  document.querySelector('#receipt-code').textContent = makeReceiptCode();
+  document.querySelector('#receipt-extra').textContent = '';
+  workbench.classList.add('is-sent');
+  window.setTimeout(() => {
+    workbench.hidden = true;
+    result.hidden = false;
+    result.classList.add('is-visible');
+  }, 380);
+});
+
+document.querySelector('#talk-more')?.addEventListener('click', () => {
+  const slip = document.querySelector('#contact-slip');
+  if (slip) slip.hidden = false;
 });
