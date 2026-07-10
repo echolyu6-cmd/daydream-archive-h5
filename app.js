@@ -1,4 +1,4 @@
-﻿const screens = [...document.querySelectorAll('.screen')];
+const screens = [...document.querySelectorAll('.screen')];
 const clueState = { 1: false, 2: false, 3: false };
 
 function showScreen(name){
